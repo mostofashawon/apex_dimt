@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../component/custom_text_widget.dart';
+import '../component/custom_textformfield_widget.dart';
 import '../controller/home_controller.dart';
 
 
@@ -54,7 +55,7 @@ class HomeView extends GetView<HomeController>{
                 ),
                 title: Center(child: Text("Create New Company")),
                 titleTextStyle: TextStyle(
-                    fontSize:  screenHeight * 0.025,
+                    fontSize:  screenHeight * 0.020,
                     fontWeight: FontWeight.bold,
                     color: Colors.black
                 ),
@@ -63,123 +64,127 @@ class HomeView extends GetView<HomeController>{
                   children: [
 
                     SizedBox(height: screenHeight * 0.010,),
-                    Container(
-                      width: screenWidth * 0.800,
-                      height: screenHeight * 0.060,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.white.withOpacity(0.6)
-                      ),
-                      // color: Colors.green,
-                      child: Padding(
-                        padding:  EdgeInsets.only(
-                            top: screenHeight * 0.005,
-                            left: screenWidth * 0.005
-                        ),
-                        child: TextFormField(
-                          // textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: "Company Name",
-                            border: InputBorder.none,
-                          ),
-                          onChanged:(searchVal){
-                             controller.companyName.value = searchVal.toString();
-                          },
-                        ),
-                      ),
-                    ),
+                    CustomTextFormField(screenHeight,screenWidth,"Company Name",controller),
+                    // Container(
+                    //   width: screenWidth * 0.800,
+                    //   height: screenHeight * 0.060,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(
+                    //           color: Colors.grey
+                    //       ),
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       color: Colors.white.withOpacity(0.6)
+                    //   ),
+                    //   // color: Colors.green,
+                    //   child: Padding(
+                    //     padding:  EdgeInsets.only(
+                    //         top: screenHeight * 0.005,
+                    //         left: screenWidth * 0.005
+                    //     ),
+                    //     child: TextFormField(
+                    //       // textAlign: TextAlign.center,
+                    //       decoration: InputDecoration(
+                    //         hintText: "Company Name",
+                    //         border: InputBorder.none,
+                    //       ),
+                    //       onChanged:(searchVal){
+                    //          controller.companyName.value = searchVal.toString();
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(height: screenHeight * 0.020,),
-                    Container(
-                      width: screenWidth * 0.800,
-                      height: screenHeight * 0.060,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.white.withOpacity(0.6)
-                      ),
-                      // color: Colors.green,
-                      child: Padding(
-                        padding:  EdgeInsets.only(
-                            top: screenHeight * 0.005,
-                            left: screenWidth * 0.005
-                        ),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          // textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: "Work Email",
-                            border: InputBorder.none,
-                          ),
-                          onChanged:(searchVal){
-                             controller.email.value = searchVal.toString();
-                          },
-                        ),
-                      ),
-                    ),
+                    CustomTextFormField(screenHeight,screenWidth,"Work Email",controller),
+                    // Container(
+                    //   width: screenWidth * 0.800,
+                    //   height: screenHeight * 0.060,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(
+                    //           color: Colors.grey
+                    //       ),
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       color: Colors.white.withOpacity(0.6)
+                    //   ),
+                    //   // color: Colors.green,
+                    //   child: Padding(
+                    //     padding:  EdgeInsets.only(
+                    //         top: screenHeight * 0.005,
+                    //         left: screenWidth * 0.005
+                    //     ),
+                    //     child: TextFormField(
+                    //       keyboardType: TextInputType.emailAddress,
+                    //       // textAlign: TextAlign.center,
+                    //       decoration: InputDecoration(
+                    //         hintText: "Work Email",
+                    //         border: InputBorder.none,
+                    //       ),
+                    //       onChanged:(searchVal){
+                    //          controller.email.value = searchVal.toString();
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(height: screenHeight * 0.020,),
-                    Container(
-                      width: screenWidth * 0.800,
-                      height: screenHeight * 0.060,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.white.withOpacity(0.6)
-                      ),
-                      // color: Colors.green,
-                      child: Padding(
-                        padding:  EdgeInsets.only(
-                            top: screenHeight * 0.005,
-                            left: screenWidth * 0.005
-                        ),
-                        child: TextFormField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            hintText: "Password",
-                            border: InputBorder.none,
-                          ),
-                          onChanged:(searchVal){
-                             controller.password.value = searchVal.toString();
-                          },
-                        ),
-                      ),
-                    ),
+                    CustomTextFormField(screenHeight,screenWidth,"Password",controller),
+                    // Container(
+                    //   width: screenWidth * 0.800,
+                    //   height: screenHeight * 0.060,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(
+                    //           color: Colors.grey
+                    //       ),
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       color: Colors.white.withOpacity(0.6)
+                    //   ),
+                    //   // color: Colors.green,
+                    //   child: Padding(
+                    //     padding:  EdgeInsets.only(
+                    //         top: screenHeight * 0.005,
+                    //         left: screenWidth * 0.005
+                    //     ),
+                    //     child: TextFormField(
+                    //       obscureText: true,
+                    //       decoration: InputDecoration(
+                    //         hintText: "Password",
+                    //         border: InputBorder.none,
+                    //       ),
+                    //       onChanged:(searchVal){
+                    //          controller.password.value = searchVal.toString();
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(height: screenHeight * 0.020,),
-                    Container(
-                      width: screenWidth * 0.800,
-                      height: screenHeight * 0.060,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.white.withOpacity(0.6)
-                      ),
-                      // color: Colors.green,
-                      child: Padding(
-                        padding:  EdgeInsets.only(
-                            top: screenHeight * 0.005,
-                            left: screenWidth * 0.005
-                        ),
-                        child: TextFormField(
-                          keyboardType: TextInputType.phone,
-                          // textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: "Phone",
-                            border: InputBorder.none,
-                          ),
-                          onChanged:(searchVal){
-                            controller.phone.value = searchVal.toString();
-                          },
-                        ),
-                      ),
-                    ),
+                    CustomTextFormField(screenHeight,screenWidth,"Phone",controller),
+                    // Container(
+                    //   width: screenWidth * 0.800,
+                    //   height: screenHeight * 0.060,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(
+                    //           color: Colors.grey
+                    //       ),
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       color: Colors.white.withOpacity(0.6)
+                    //   ),
+                    //   // color: Colors.green,
+                    //   child: Padding(
+                    //     padding:  EdgeInsets.only(
+                    //         top: screenHeight * 0.005,
+                    //         left: screenWidth * 0.005
+                    //     ),
+                    //     child: TextFormField(
+                    //       keyboardType: TextInputType.phone,
+                    //       // textAlign: TextAlign.center,
+                    //       decoration: InputDecoration(
+                    //         hintText: "Phone",
+                    //         border: InputBorder.none,
+                    //       ),
+                    //       onChanged:(searchVal){
+                    //         controller.phone.value = searchVal.toString();
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(height: screenHeight * 0.020,),
                     GestureDetector(
                       onTap: () async {
@@ -213,12 +218,33 @@ class HomeView extends GetView<HomeController>{
                           );
 
                         }
+                        else if( controller.password.value.toString().length < 7){
+                          Get.snackbar(
+                            "Warning",
+                            "The password must be at least 7 characters",
+                            colorText: Colors.white,
+                            backgroundColor: Colors.red,
+                            snackPosition: SnackPosition.BOTTOM,
+
+                          );
+                        }
+                        else if( controller.phone.value.toString().length < 7 ||
+                            controller.phone.value.toString().length > 15){
+                          Get.snackbar(
+                            "Warning",
+                            "The phone must be between 9 and 15 digits",
+                            colorText: Colors.white,
+                            backgroundColor: Colors.red,
+                            snackPosition: SnackPosition.BOTTOM,
+
+                          );
+                        }
                         else {
                           var status = await controller.addNewCompany();
                           if(status == true){
                             Get.snackbar(
                               "Success",
-                              "Please fill up all the field",
+                              "New Company created ",
                               colorText: Colors.white,
                               backgroundColor: Color(0xff25A5A3),
                               snackPosition: SnackPosition.BOTTOM,
@@ -241,7 +267,8 @@ class HomeView extends GetView<HomeController>{
                           child: Text(
                             "Create a New Company",
                             style: TextStyle(
-                                color: Colors.white
+                                color: Colors.white,
+                              fontSize: screenHeight * 0.020
                             ),
                           ),
                         ),
@@ -258,7 +285,7 @@ class HomeView extends GetView<HomeController>{
         },
         child: Container(
           height: screenHeight * 0.040,
-          width: screenWidth  * 0.20,
+          width: screenWidth  * 0.25,
           decoration: BoxDecoration(
             color: Color(0xff25A5A3),
             borderRadius: BorderRadius.circular(
@@ -266,9 +293,9 @@ class HomeView extends GetView<HomeController>{
             )
           ),
           child: Center(
-            child: Text("Create New Company",style: TextStyle(
+            child: Text("Create  Company",style: TextStyle(
                 color: Colors.white,
-                 fontSize: screenHeight * 0.015,
+                 fontSize: screenHeight * 0.013,
             ),),
           )
         ),
