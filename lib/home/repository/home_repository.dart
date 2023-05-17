@@ -1,6 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/connect.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:http/http.dart 'as http;
 
 import '../model/company.dart';
@@ -13,11 +17,11 @@ class HomeRepository extends GetConnect {
 
 
 
+  // fetching company list from network
 
 
 
   Future<Company?> getCompanyList() async {
-
 
 
     final url = Uri.parse('http://139.59.35.127/apex-dmit/public/api/company');
@@ -27,38 +31,31 @@ class HomeRepository extends GetConnect {
         url,
     );
 
-
-    print(response.statusCode.toString());
-
-
     if (response.statusCode == 200) {
-      // var finalResponse = jsonDecode(response.body.toString());
-
-      // var jsonResponse = json.decode(response.body);
 
       var jsonResponse = json.decode(response.body);
 
-
-
-
       try {
          if (jsonResponse['status_code'] == "1") {
-
-           print("resssssssss............"+jsonResponse.toString());
-
-          // print(jsonResponse.toString());
-
-          // var jsonString = response.body;
           return companyFromJson(response.body);
-          // return AllPost.fromJson(finalResponse);
          }
       } catch (e) {
-        print(e.toString());
+        Get.snackbar(
+          "Exception",
+          e.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+
+        );
       }
     } else {
       return null;
     }
   }
+
+
+  // upload new company to remote server
 
   Future<dynamic?> uploadNewCompany(String companyName,
       String email,
@@ -82,22 +79,24 @@ class HomeRepository extends GetConnect {
     );
 
 
-    print(response.statusCode.toString());
-
 
     if (response.statusCode == 201) {
-      // var finalResponse = jsonDecode(response.body.toString());
 
       var jsonResponse = json.decode(response.body);
-
-      print(response.body.toString());
 
       try {
         if (jsonResponse['status_code'] == "1") {
           return true;
         }
       } catch (e) {
-        print(e.toString());
+        Get.snackbar(
+          "Exception",
+          e.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+
+        );
       }
     } else {
       return false;

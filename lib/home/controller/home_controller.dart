@@ -22,6 +22,10 @@ class HomeController extends GetxController{
 
   }
 
+
+  // upload new company to remote server
+  // calling from repository
+
   Future<void> fetchCompanyList() async {
     isLoading.value = true;
     try {
@@ -37,6 +41,9 @@ class HomeController extends GetxController{
     }
     isLoading.value = false;
   }
+
+  // fetching company list from network
+  // calling from repository
 
   Future<dynamic?> addNewCompany() async {
 
